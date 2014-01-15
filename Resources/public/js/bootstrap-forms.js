@@ -40,7 +40,9 @@
             }else if(start_date){
                 options.endDate = new Date(end_date);
             }
-            $(this).datepicker(options);
+            if(!$input.is(':disabled')){
+                $(this).datepicker(options);
+            }
         });
         /**
          * TimePicker
