@@ -53,15 +53,16 @@ class DatePickerType extends AbstractType
         if (!in_array($dateFormat, self::$acceptedFormats, true)) {
             throw new InvalidOptionsException('The "format" option must be one of the IntlDateFormatter constants (FULL, LONG, MEDIUM, SHORT) or a string representing a custom format.');
         }
-
-        $builder->addViewTransformer(new DateTimeToLocalizedStringTransformer(
-            null,
-            null,
-            $dateFormat,
-            $timeFormat,
-            $calendar,
-            $pattern
-        ));
+        if($options['input'] == 'single_text' || $options['input'] == 'datetime'){
+            $builder->addViewTransformer(new DateTimeToLocalizedStringTransformer(
+                null,
+                null,
+                $dateFormat,
+                $timeFormat,
+                $calendar,
+                $pattern
+            ));
+        }
 
         if ( $options['input'] == 'single_text' ) {
             $builder->addModelTransformer(new ReversedTransformer(
