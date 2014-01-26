@@ -7,7 +7,7 @@
         $('.bootstrap-datepicker').each(function() {
                 var $input = $('input', this);
                 if($input.length==0){
-                    var $input = this;    
+                    var $input = $(this);    
                 }
                 var week_start = $input.data('week-start'),
                 calendar_weeks = $input.data('calendar-weeks'),
