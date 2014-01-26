@@ -5,8 +5,11 @@
          * DatePicker
          */
         $('.bootstrap-datepicker').each(function() {
-            var $input = $('input', this),
-                week_start = $input.data('week-start'),
+                var $input = $('input', this);
+                if($input.length==0){
+                    var $input = this;    
+                }
+                var week_start = $input.data('week-start'),
                 calendar_weeks = $input.data('calendar-weeks'),
                 days_of_week_disabled = $input.data('days-of-week-disabled'),
                 autoclose = $input.data('autoclose'),
